@@ -10,9 +10,12 @@
     - `list_directory`: 查看目录。
     - `write_file` / `replace`: 创建和修改代码。
     - `run_shell_command`: 编译、运行、执行 Git 指令。
+- [x] **知识沉淀**:
+    - 创建 `LEARNING_NOTES.md`: 记录第一课的核心操作与理念。
+    - 创建 `ROADMAP.md`: 制定了从入门到 K8s 部署的四阶段学习计划。
 
 ## 🚀 待办事项 (Next Steps)
-1. [ ] **Maven 化**: 引入 `pom.xml`，管理依赖。
+1. [ ] **Maven 化**: 引入 `pom.xml`，管理依赖（第二阶段起点）。
 2. [ ] **测试驱动**: 编写 JUnit 测试用例。
 3. [ ] **错误处理**: 模拟 Bug 并使用 AI 修复。
 4. [ ] **多文件协作**: 学习如何让 AI 理解跨文件的调用逻辑。
