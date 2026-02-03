@@ -3,24 +3,20 @@
 ## 📅 最后更新: 2026-02-02
 
 ## 🎯 当前进度
-- [x] **环境初始化**: 成功在 `D:\code\AI_learning` 建立 Java 环境。
-- [x] **目录重构**: 代码已规范化至 `src/com/example/Hello.java`。
-- [x] **版本控制**: 初始化 Git，配置 `.gitignore`，并成功推送到 GitHub。
-- [x] **工具掌握**: 
-    - `list_directory`: 查看目录。
-    - `write_file` / `replace`: 创建和修改代码。
-    - `run_shell_command`: 编译、运行、执行 Git 指令。
-- [x] **知识沉淀**:
-    - 创建 `LEARNING_NOTES.md`: 记录第一课的核心操作与理念。
-    - 创建 `ROADMAP.md`: 制定了从入门到 K8s 部署的四阶段学习计划。
+- [x] **第一阶段完成**: 掌握了基础的文件操作、Git 流程和 Maven 构建（基于 Hello World 示例）。
+- [x] **方向调整**: 用户决定跳过简单的依赖管理练习，直接使用**真实开源项目**进行高阶学习。
 
 ## 🚀 待办事项 (Next Steps)
-1. [x] **Maven 化**: 引入 `pom.xml`，管理依赖（第二阶段起点）。
-2. [x] **测试驱动**: 编写 JUnit 测试用例，并重构代码以支持测试。
-3. [ ] **依赖管理**: 添加 Lombok 或其他实用库。
-4. [ ] **代码库调研**: 练习使用 AI 分析现有项目结构。
-3. [ ] **错误处理**: 模拟 Bug 并使用 AI 修复。
-4. [ ] **多文件协作**: 学习如何让 AI 理解跨文件的调用逻辑。
+1. [ ] **项目选型**: 选择一个合适的开源 Java 项目（如 Spring PetClinic, Apache Commons 等）。
+2. [ ] **环境准备**: 克隆项目并确保本地构建成功。
+3. [ ] **深度调研**: 使用 `codebase_investigator` 或组合工具分析复杂架构。
+4. [ ] **实战任务**: 在真实代码库中定位 Bug 或添加特性。
+
+## 💡 小贴士
+- 推荐选择代码质量高且有一定复杂度的项目，例如:
+    - `spring-projects/spring-petclinic` (经典的 Spring Boot 示例)
+    - `apache/commons-lang` (工具类库，适合单元测试和逻辑分析)
+    - `google/guava` (高质量 Java 核心库)
 
 ## 💡 小贴士
 - 下次在任何地方打开此项目，只需对 Gemini 说：**"读取 PROJECT_STATUS.md"**，即可快速同步进度。
