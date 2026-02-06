@@ -7,10 +7,12 @@
 - [x] **方向调整**: 用户决定跳过简单的依赖管理练习，直接使用**真实开源项目**进行高阶学习。
 - [x] **代理指南**: 已创建 AI 代理指南文件 (AGENTS.md)，包含构建命令、代码风格和行为准则。
 - [x] **opencode智能助手**: 已配置 `/继续学习` 命令，支持一键分析学习进度并提供下一步建议。
+- [x] **项目选型完成**: 已成功克隆 Spring PetClinic 项目（spring-projects/spring-petclinic）。
+- [x] **环境准备完成**: Spring PetClinic 项目已成功构建（Maven clean compile）。
 
 ## 🚀 待办事项 (Next Steps)
-1. [ ] **项目选型**: 选择一个合适的开源 Java 项目（如 Spring PetClinic, Apache Commons 等）。
-2. [ ] **环境准备**: 克隆项目并确保本地构建成功。
+1. [x] **项目选型**: 已选择并克隆 Spring PetClinic 项目到本地。
+2. [x] **环境准备**: 项目已克隆，Java 21 和 Maven 3.9.12 环境已验证，构建成功。
 3. [ ] **深度调研**: 使用 `codebase_investigator` 或组合工具分析复杂架构。
 4. [ ] **实战任务**: 在真实代码库中定位 Bug 或添加特性。
 

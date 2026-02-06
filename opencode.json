@@ -31,19 +31,7 @@
       "agent": "build",
       
       // 命令模板 - 包含shell命令和AI指令
-      "template": "请执行以下步骤分析我的学习进度：\n\n" +
-        "1. 首先读取项目状态文档：\n" +
-        "!`cat PROJECT_STATUS.md 2>/dev/null || echo '⚠️ 未找到PROJECT_STATUS.md文件'`\n\n" +
-        "2. 然后读取学习路线图：\n" +
-        "!`cat ROADMAP.md 2>/dev/null || echo '⚠️ 未找到ROADMAP.md文件'`\n\n" +
-        "3. 最后读取学习笔记：\n" +
-        "!`cat LEARNING_NOTES.md 2>/dev/null || echo '⚠️ 未找到LEARNING_NOTES.md文件'`\n\n" +
-        "基于以上文档内容，请：\n" +
-        "📊 **分析当前学习状态**：总结已完成的关键里程碑\n" +
-        "🎯 **识别最高优先级任务**：从待办事项中选择最紧急的一项\n" +
-        "🚀 **提供具体建议**：给出可立即执行的下一步操作\n" +
-        "⏰ **预估时间**：建议完成任务所需的大致时间\n\n" +
-        "注意：请使用中文回复，保持建议具体、可操作。"
+      "template": "请执行以下步骤分析我的学习进度：\n\n1. 首先读取项目状态文档：\n!`cat PROJECT_STATUS.md 2>/dev/null || echo '⚠️ 未找到PROJECT_STATUS.md文件'`\n\n2. 然后读取学习路线图：\n!`cat ROADMAP.md 2>/dev/null || echo '⚠️ 未找到ROADMAP.md文件'`\n\n3. 最后读取学习笔记：\n!`cat LEARNING_NOTES.md 2>/dev/null || echo '⚠️ 未找到LEARNING_NOTES.md文件'`\n\n基于以上文档内容，请：\n📊 **分析当前学习状态**：总结已完成的关键里程碑\n🎯 **识别最高优先级任务**：从待办事项中选择最紧急的一项\n🚀 **提供具体建议**：给出可立即执行的下一步操作\n⏰ **预估时间**：建议完成任务所需的大致时间\n\n注意：请使用中文回复，保持建议具体、可操作。"
     }
   },
   
