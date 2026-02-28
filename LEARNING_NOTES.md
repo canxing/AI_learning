@@ -96,10 +96,26 @@
 - 方式：3个子代理并行分析 Owner/Visit/Vet 模块
 - 结果：生成 `docs/PetClinic_Architecture.md` 架构分析报告
 
-#### 第6次：自建子代理（待进行）
+#### 第6次：自建子代理
 - 任务：创建自定义子代理并调用
 - 方式：在 `.opencode/agents/` 目录创建自定义代理配置文件
-- 目标：掌握自建子代理的完整流程
+- 结果：成功创建 `code-reviewer.md` 代码审查代理并测试调用
+
+### 自建子代理步骤
+
+1. **创建目录**：`.opencode/agents/`
+2. **创建 Markdown 文件**：`code-reviewer.md`
+3. **定义 Frontmatter**：
+   ```yaml
+   description: 代码审查代理
+   mode: subagent
+   temperature: 0.1
+   tools:
+     write: false
+     edit: false
+   ```
+4. **定义 Prompt**：在 `---` 后写系统指令
+5. **调用方式**：通过 task 工具或直接 @ 提及
 
 ---
 
