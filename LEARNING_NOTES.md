@@ -95,3 +95,151 @@
 - 任务：多代理协作分析完整架构
 - 方式：3个子代理并行分析 Owner/Visit/Vet 模块
 - 结果：生成 `docs/PetClinic_Architecture.md` 架构分析报告
+
+---
+
+## 📅 2026-02-28 第三课：子代理（Task）进阶问答
+
+### 常见问题与解答
+
+#### Q1: 如何调用 explore 子代理？
+**语法**：
+```python
+task(
+    command="分析 PetClinic Owner 模块",
+    description="探索 Owner 模块",
+    prompt="在 spring-petclinic 项目中探索 Owner 模块...",
+    subagent_type="explore"
+)
+```
+
+**关键参数**：
+- `command`: 任务标题
+- `description`: 简短描述（3-5词）
+- `prompt`: 详细任务指令
+- `subagent_type`: 子代理类型（explore/general）
+
+---
+
+#### Q2: 什么情况下会调用子代理？
+**触发场景**：
+- **并行任务**："同时分析 A 模块和 B 模块"
+- **代码探索**："找出所有的 Controller 文件"
+- **批量搜索**："搜索所有用到 XXX 的地方"
+- **研究任务**："研究 Spring Boot 缓存机制"
+- **多步骤任务**："帮我完成 XXX，需要先找文件、再分析、最后生成报告"
+
+**原则**：
+- 可并行独立执行时
+- 需要深入探索代码库时
+- 步骤较多需要委托时
+
+---
+
+#### Q3: explore 的适用场景在哪里定义？
+**官方文档**：https://opencode.ai/docs/agents
+
+**定义**：
+```
+explore: A fast, read-only agent for exploring codebases. 
+Cannot modify files. Use this when you need to quickly 
+find files by patterns, search code for keywords, or 
+answer questions about the codebase.
+```
+
+**两种内置子代理**：
+| 子代理 | 描述 |
+|--------|------|
+| explore | 只读，快速探索代码库 |
+| general | 读写，执行多步骤复杂任务 |
+
+---
+
+#### Q4: 自建子代理和 explore 功能重合时如何选择？
+**默认选择**：当用户未明确指定时，使用内置 explore
+
+**选择逻辑**：
+- 用户只说"分析代码" → 内置 explore
+- 用户说"用代码审查代理分析" → 检查是否存在该自建代理，存在则用之
+- 用户明确指定代理名称 → 使用指定代理
+
+**核心区别**：
+| 子代理 | 优势 |
+|--------|------|
+| 内置 explore | 无需配置，随时可用 |
+| 自建子代理 | 更贴合特定业务场景，可定制 prompt/工具 |
+
+---
+
+#### Q5: 如何获取子代理 id？
+**方式**：每次调用 `task` 后，返回值中包含 `task_id`
+
+**示例**：
+```
+task_id: ses_35c54be67ffeHOeRrPw9qrKJQ8 (for resuming to continue this task if needed)
+```
+
+**忘记 id 怎么办**：
+- 直接问我"之前的子代理 id 是什么？"
+- 我会从对话历史中查找并列出所有子代理 id
+
+---
+
+#### Q6: 如何与子代理继续对话？
+**方式**：必须**告诉我**，我来帮你调用
+
+**实际路径**：
+```
+你 → 主代理(我) → task 工具 → 子代理
+```
+
+**你可以这样表达**：
+- "继续之前的 Owner 分析"
+- "用 task_id ses_35c54be67ffeHOeRrPw9qrKJQ8 继续"
+- "让之前的子代理补充说明 XXX"
+
+**注意**：你不能直接和子代理对话，必须通过我中转。
+
+---
+
+#### Q7: 如何同时调用两个子代理分析，最后又用一个子代理整合结果？
+**触发并行分析的关键词**：
+- "同时分析 Owner 模块和 Pet 模块"
+- "并行分析 A、B、C 三个模块"
+- "分别分析 Controller 层和 Service 层"
+
+**关于整合**：
+- 只说"分析 A 和 B" → 只启动 2 个 explore
+- 说"分析 A 和 B，**然后整合结果**" → 先启动 2 个 explore，再用 1 个 general 整合
+- 说"分析 A、B、C，**生成综合报告**" → 启动 3 个 explore，然后用 general 整合
+
+**完整示例**：
+> "同时分析 PetClinic 的 Owner、Visit、Vet 三个模块，然后整合成一份完整的架构分析报告"
+
+**执行流程**：
+1. 启动 explore 分析 Owner
+2. 启动 explore 分析 Visit
+3. 启动 explore 分析 Vet
+4. 等待结果
+5. 启动 general 整合三个结果
+6. 生成最终报告
+
+---
+
+### 关键学习要点
+
+1. **子代理类型选择**：
+   - 只读探索 → explore
+   - 需要写文件/生成报告 → general
+
+2. **task_id 续话**：
+   - 用于继续之前的会话
+   - 保留上下文，适合长对话
+
+3. **多代理协作**：
+   - 明确说"整合"才会启动第三个代理
+   - 并行分析 → 串行整合 → 输出报告
+
+4. **产出成果**：
+   - `docs/Spring_Boot_Cache_Guide.md`
+   - `docs/PetClinic_Architecture.md`
